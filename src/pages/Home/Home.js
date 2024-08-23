@@ -18,15 +18,15 @@ function Home() {
   const [qnNum, setQnNum] = useState(1);
   const [answers, setAnswers] = useState({});
   const [show, setShow] = useState(false);
+
   const handleSubmit = () => {
-    console.log(questionsList.questions.length,answers.length);
     if (questionsList?.questions?.length !== Object.keys(answers).length) {
       setShow(true);
       return;
     }
-    else{
-      const state ={answers,questionsList}
-      navigate("/results",{state:state});
+    else {
+      const state = { answers, questionsList }
+      navigate("/results", { state: state });
     }
   };
 
@@ -40,26 +40,26 @@ function Home() {
     >
       <Container
         fluid
-        className="bg-green-dark vh-100 d-flex flex-column overflow-hidden"
+        className="bg-green-dark min-vh-100 d-flex flex-column overflow-hidden"
       >
-        <Row className="flex-shrink-0 justify-content-end mt-3 mx-1 px-5">
+        <Row className="flex-shrink-0 justify-content-end mt-3 mx-1 px-3 px-md-5">
           <Button
-            varient="success"
+            variant="success"
             className="bg-success border-success text-right w-auto font-weight-bold"
             onClick={handleSubmit}
           >
             Submit
           </Button>
         </Row>
-        <Row className="flex-grow-1 p-5 pt-2 overflow-hidden">
-          <Col md={3} className="h-100 overflow-hidden">
+        <Row className="flex-grow-1 p-2 p-md-5 pt-md-2 overflow-hidden">
+          <Col xs={12} md={3} className="mb-3 mb-md-0 h-md-100 overflow-hidden">
             <Card className="h-100 overflow-hidden">
               <Card.Body className="d-flex flex-column overflow-auto">
                 <LeftSidebar />
               </Card.Body>
             </Card>
           </Col>
-          <Col md={9} className="h-100 overflow-hidden">
+          <Col xs={12} md={9} className="h-md-100 overflow-hidden">
             <Card className="h-100 overflow-hidden">
               <Card.Body className="d-flex flex-column overflow-auto">
                 <RightSidebar />
